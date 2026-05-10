@@ -8,3 +8,9 @@ Pages included:
 - `application.html`
 - `contact.html`
 - `womens_academy.html`
+
+Color included:
+- `green`
+- `green`
+- `black`
+- `white`
