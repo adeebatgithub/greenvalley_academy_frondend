@@ -1,0 +1,160 @@
+/* Global Typography */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ── Navigation Styles ── */
+.logo-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+}
+
+.nav-pill {
+    background: rgba(20, 20, 20, 0.72);
+    backdrop-filter: blur(12px);
+}
+
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #d1fb5f;
+    border-radius: 2px;
+}
+
+/* ── Mobile Menu Animation ── */
+#mob-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+#mob-menu.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* ── Scroll Reveal Animations ── */
+.a-fade {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.68s ease, transform 0.68s ease;
+}
+
+.a-fade.vis {
+    opacity: 1;
+    transform: none;
+}
+
+.a-left {
+    opacity: 0;
+    transform: translateX(-48px);
+    transition: opacity 0.72s ease, transform 0.72s ease;
+}
+
+.a-right {
+    opacity: 0;
+    transform: translateX(48px);
+    transition: opacity 0.72s ease, transform 0.72s ease;
+}
+
+.a-left.vis, .a-right.vis {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── Image Hover Zoom Effects ── */
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img, .img-zoom .thumb {
+    transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img, .img-zoom:hover .thumb {
+    transform: scale(1.05);
+}
+
+/* ── Faculty Card Styling ── */
+.fac-card {
+    transition: transform 0.3s ease;
+}
+
+.fac-card:hover {
+    transform: translateY(-6px);
+}
+
+.fac-avatar {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.fac-card:hover .fac-avatar {
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(0, 48, 28, 0.22);
+}
+
+/* ── Wave Divider Utility ── */
+.wave-div {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* ── Footer Link Animations ── */
+.foot-link {
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.foot-link:hover {
+    color: #d1fb5f;
+    padding-left: 4px;
+}
+
+.foot-sl {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.foot-sl:hover {
+    color: #d1fb5f;
+    transform: translateX(3px);
+}
+
+/* ── Custom Layer Accent ── */
+.layer-accent {
+    position: absolute;
+    width: 88%;
+    height: 88%;
+    border-radius: 1.5rem;
+    background: #d1fb5f;
+    bottom: -14px;
+    right: -14px;
+    z-index: 0;
+}
+
+/* Mobile Fallback for Menu Background */
+@media (max-width: 767px) {
+    #mob-menu {
+        background: #00301c;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}

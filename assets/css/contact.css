@@ -1,0 +1,180 @@
+/* Base Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Navigation Components */
+.logo-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-pill {
+    background: rgba(20, 20, 20, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #d1fb5f;
+    border-radius: 2px;
+}
+
+#mob-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+#mob-menu.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Form Components */
+.c-input,
+.c-select,
+.c-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding: 10px 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.82rem;
+    color: white;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.c-input::placeholder,
+.c-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.c-input:focus,
+.c-select:focus,
+.c-textarea:focus {
+    border-bottom-color: #d1fb5f;
+}
+
+.c-select {
+    appearance: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.c-select option {
+    background: #00301c;
+    color: white;
+}
+
+.c-textarea {
+    resize: none;
+    min-height: 80px;
+}
+
+/* Buttons & Interactions */
+.submit-btn {
+    transition: background 0.22s ease, transform 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #b8e84a;
+    transform: translateY(-2px);
+    letter-spacing: 0.04em;
+}
+
+.contact-icon-btn {
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-icon-btn:hover {
+    background: #d1fb5f;
+    transform: scale(1.08);
+}
+
+.contact-icon-btn:hover svg {
+    color: #00301c;
+}
+
+/* Footer Links */
+.foot-link {
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.foot-link:hover {
+    color: #d1fb5f;
+    padding-left: 4px;
+}
+
+.foot-social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.foot-social-link:hover {
+    color: #d1fb5f;
+    transform: translateX(3px);
+}
+
+/* Utilities & Animations */
+.c-fade {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.68s ease, transform 0.68s ease;
+}
+
+.c-fade.vis {
+    opacity: 1;
+    transform: none;
+}
+
+.wave-divider {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+@keyframes mapShimmer {
+    0%, 100% {
+        opacity: 0.06;
+    }
+    50% {
+        opacity: 0.12;
+    }
+}
+
+.map-shimmer {
+    animation: mapShimmer 2.5s ease-in-out infinite;
+}
+
+/* Responsive Fixes */
+@media (max-width: 767px) {
+    #mob-menu {
+        background: #00301c;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}
