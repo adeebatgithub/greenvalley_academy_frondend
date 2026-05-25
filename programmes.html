@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>Programmes & Courses — GreenValley Academy</title>
-    <link rel="icon" type="image/png" href="assets/image/logo/favicon-circle.png"/>
+
+    <link rel="icon" type="image/ico" href="assets/image/ico/favicon-circle.ico"/>
+
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap"
-            rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,211 +26,18 @@
             },
         };
     </script>
-    <style>
-        body {
-            font-family: "Poppins", sans-serif;
-            margin: 0;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: "Roboto", sans-serif;
-        }
-
-        /* Nav */
-        .logo-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-        }
-
-        .nav-pill {
-            background: rgba(20, 20, 20, 0.72);
-            backdrop-filter: blur(12px);
-        }
-
-        .nav-link {
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        .nav-link.active::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #d1fb5f;
-            border-radius: 2px;
-        }
-
-        #mob-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        #mob-menu.open {
-            max-height: 500px;
-            opacity: 1;
-        }
-
-        /* Scroll reveal */
-        .c-fade {
-            opacity: 0;
-            transform: translateY(36px);
-            transition: opacity 0.68s ease, transform 0.68s ease;
-        }
-
-        .c-left {
-            opacity: 0;
-            transform: translateX(-52px);
-            transition: opacity 0.72s ease, transform 0.72s ease;
-        }
-
-        .c-right {
-            opacity: 0;
-            transform: translateX(52px);
-            transition: opacity 0.72s ease, transform 0.72s ease;
-        }
-
-        .c-fade.vis, .c-left.vis, .c-right.vis {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* Hero image zoom on load */
-        @keyframes heroZoom {
-            from {
-                transform: scale(1.06);
-            }
-            to {
-                transform: scale(1);
-            }
-        }
-
-        .hero-img-zoom {
-            animation: heroZoom 1.4s ease forwards;
-        }
-
-        /* Card hover */
-        .syl-card {
-            transition: transform 0.3s cubic-bezier(0.22, 0.68, 0, 1.15), box-shadow 0.3s ease;
-        }
-
-        .syl-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.16);
-        }
-
-        .feat-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 40px rgba(0, 48, 28, 0.18);
-        }
-
-        .phase-card {
-            transition: transform 0.28s ease;
-        }
-
-        .phase-card:hover {
-            transform: scale(1.015);
-        }
-
-        /* Image hover zoom */
-        .img-zoom {
-            overflow: hidden;
-        }
-
-        .img-zoom img {
-            transition: transform 0.5s ease;
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .img-zoom:hover img {
-            transform: scale(1.04);
-        }
-
-        /* Curved top for academy details section */
-        .curve-top {
-            position: relative;
-        }
-
-        .curve-top::before {
-            content: "";
-            position: absolute;
-            top: -48px;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background: #c8f040;
-            clip-path: ellipse(55% 100% at 50% 100%);
-        }
-
-        /* Checklist icon */
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        /* Foot */
-        .foot-link {
-            transition: color 0.2s ease, padding-left 0.2s ease;
-        }
-
-        .foot-link:hover {
-            color: #d1fb5f;
-            padding-left: 4px;
-        }
-
-        .foot-sl {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .foot-sl:hover {
-            color: #d1fb5f;
-            transform: translateX(3px);
-        }
-
-        @media (max-width: 767px) {
-            #mob-menu {
-                background: #00301c;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/programmes.css">
 </head>
 <body class="bg-white text-primary antialiased">
 <!-- ══════════ NAVBAR ══════════ -->
-<header
-        class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 pt-4 flex items-start justify-between gap-4"
->
-    <a
-            href="./index.html"
-            class="logo-card flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-lg flex-shrink-0"
-            aria-label="Home"
-    >
+<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 pt-4 flex items-start justify-between gap-4">
+    <a href="./index.html" class="logo-card flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-lg flex-shrink-0" aria-label="Home">
         <div class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 overflow-hidden rounded-full bg-white">
-            <img
-                    src="./assets/image/logo/GV Logo.png"
-                    alt="GreenValley Academy logo"
-                    class="w-full h-full object-contain"
-            />
+            <img src="./assets/image/logo/logo.webp" alt="GreenValley Academy logo" class="w-full h-full object-contain"/>
         </div>
         <div class="leading-tight">
             <p class="font-heading font-black text-primary text-sm sm:text-base leading-none tracking-tight">
-                GREENVALLEY
+                GREEN VALLEY
             </p>
             <p class="font-heading font-black text-primary text-sm sm:text-base leading-none tracking-tight">
                 ACADEMY
@@ -251,7 +59,7 @@
            class="nav-link text-white/70 font-body font-medium text-xs lg:text-sm px-3 lg:px-4 py-1.5 hover:text-secondary transition-colors whitespace-nowrap">ACTIVITIES</a>
         <a href="./application.html"
            class="nav-link text-white/70 font-body font-medium text-xs lg:text-sm px-3 lg:px-4 py-1.5 hover:text-secondary transition-colors whitespace-nowrap">ADMISSION</a>
-        <a href="./womens-academy.html"
+        <a href="./womens_academy.html"
            class="nav-link text-white/70 font-body font-medium text-xs lg:text-sm px-3 lg:px-4 py-1.5 hover:text-secondary transition-colors whitespace-nowrap">WOMEN'S
             ACADEMY</a>
         <a href="./application.html"
@@ -293,7 +101,7 @@
 <!-- ══════════ 1. HERO ══════════ -->
 <section class="relative w-full overflow-hidden" style="min-height: 55vh" aria-label="Our Courses">
     <div class="absolute inset-0">
-        <img src="assets/image/secton4.jpg" alt="GreenValley Academy students"
+        <img src="assets/image/programs/hero-img.webp" alt="GreenValley Academy students"
              class="w-full h-full object-cover object-center hero-img-zoom"/>
     </div>
     <div class="absolute inset-0"
@@ -308,7 +116,7 @@
                 OUR COURSES
             </h1>
             <p class="text-white/60 font-body font-light text-sm sm:text-base leading-relaxed">
-                Explore a diverse range of career-focused programmes designed to foster knowledge, skill development,
+                Explore a diverse range of career-focused programs designed to foster knowledge, skill development,
                 and professional excellence. We provide high-quality education, hands-on practical learning, and robust
                 academic support to empower students in achieving their highest potential.
             </p>
@@ -353,7 +161,7 @@
                         </div>
                     </div>
                     <div class="img-zoom">
-                        <img src="assets/image/sociology.jpg" alt="Students in language class"
+                        <img src="assets/image/programs/sociology.webp" alt="Students in language class"
                              class="w-full h-full object-cover"/>
                     </div>
                 </div>
@@ -362,7 +170,7 @@
             <article class="syl-card c-fade rounded-2xl overflow-hidden shadow-lg"
                      style="transition-delay: 0.14s; min-height: 260px">
                 <div class="img-zoom w-full h-full" style="min-height: 260px">
-                    <img src="assets/image/bcom.jpg" alt="Students in classroom" class="w-full h-full object-cover"/>
+                    <img src="assets/image/programs/bcom.webp" alt="Students in classroom" class="w-full h-full object-cover"/>
                 </div>
             </article>
 
@@ -461,7 +269,7 @@
         <!-- Block 1: Computer Applications -->
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-24">
             <div class="c-left img-zoom rounded-2xl overflow-hidden shadow-xl border-2 border-secondary/30 aspect-[4/3]">
-                <img src="assets/image/bca.JPG" alt="Students at computer lab — Computer Applications"
+                <img src="assets/image/programs/bca.webp" alt="Students at computer lab — Computer Applications"
                      class="w-full h-full object-cover"/>
             </div>
             <div class="c-right" style="transition-delay: 0.12s">
@@ -621,7 +429,7 @@
             </div>
             <div class="c-right order-1 md:order-2 img-zoom rounded-2xl overflow-hidden shadow-xl border-2 border-secondary/30 aspect-[4/3]"
                  style="transition-delay: 0.12s">
-                <img src="assets/image/electrician.JPG" alt="Students doing electrical technician work"
+                <img src="assets/image/programs/electrician.webp" alt="Students doing electrical technician work"
                      class="w-full h-full object-cover"/>
             </div>
         </div>
@@ -629,7 +437,7 @@
         <!-- Block 3: Graphic Designing -->
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 md:mb-24">
             <div class="c-left img-zoom rounded-2xl overflow-hidden shadow-xl border-2 border-secondary/30 aspect-[4/3]">
-                <img src="assets/image/graphicdesignilp 2.JPG" alt="Student working on graphic design"
+                <img src="assets/image/programs/graphicdesign.webp" alt="Student working on graphic design"
                      class="w-full h-full object-cover"/>
             </div>
             <div class="c-right" style="transition-delay: 0.12s">
@@ -790,7 +598,7 @@
             </div>
             <div class="c-right order-1 md:order-2 img-zoom rounded-2xl overflow-hidden shadow-xl border-2 border-secondary/30 aspect-[4/3]"
                  style="transition-delay: 0.12s">
-                <img src="assets/image/fitnessilp1.jpg" alt="Martial arts fitness training"
+                <img src="assets/image/programs/fitness.webp" alt="Martial arts fitness training"
                      class="w-full h-full object-cover object-top"/>
             </div>
         </div>
@@ -798,7 +606,7 @@
         <!-- Block 5: Cybersecurity -->
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div class="c-left img-zoom rounded-2xl overflow-hidden shadow-xl border-2 border-secondary/30 aspect-[4/3]">
-                <img src="assets/image/cybersecurity.jpg" alt="Student at computer — Cybersecurity"
+                <img src="assets/image/programs/cybersecurity.webp" alt="Student at computer — Cybersecurity"
                      class="w-full h-full object-cover object-right"/>
             </div>
             <div class="c-right" style="transition-delay: 0.12s">
@@ -936,7 +744,7 @@
                         </div>
                     </div>
                     <div class="img-zoom">
-                        <img src="./assets/image/ilp.jpg" alt="Students studying humanities and commerce"
+                        <img src="./assets/image/programs/ilp.webp" alt="Students studying humanities and commerce"
                              class="w-full h-full object-cover"/>
                     </div>
                 </div>
@@ -1007,7 +815,7 @@
             <div class="c-fade grid sm:grid-cols-5 gap-0 rounded-2xl overflow-hidden shadow-lg"
                  style="transition-delay: 0.06s">
                 <div class="sm:col-span-2 img-zoom" style="min-height: 220px">
-                    <img src="./assets/image/higherstudy.jpg" alt="Students studying — Stream 1"
+                    <img src="./assets/image/programs/higherstudy.webp" alt="Students studying — Stream 1"
                          class="w-full h-full object-cover"
                          style="display: block; width: 100%; height: 100%; object-fit: cover; min-height: 220px;"/>
                 </div>
@@ -1099,7 +907,7 @@
                     </div>
                 </div>
                 <div class="sm:col-span-2 img-zoom order-1 sm:order-2" style="min-height: 220px">
-                    <img src="./assets/image/higherstudy 1.jpg" alt="Students studying together — Stream 2"
+                    <img src="./assets/image/programs/higherstudy_1.webp" alt="Students studying together — Stream 2"
                          class="w-full h-full object-cover"
                          style="display: block; width: 100%; height: 100%; object-fit: cover; min-height: 220px;"/>
                 </div>
@@ -1161,7 +969,7 @@
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div class="c-left">
                 <div class="img-zoom rounded-2xl overflow-hidden shadow-xl mb-6 aspect-[4/3]">
-                    <img src="./assets/image/softskill1.jpg" alt="Classroom lecture — soft skills programme"
+                    <img src="./assets/image/programs/softskill1.webp" alt="Classroom lecture — soft skills programme"
                          class="w-full h-full object-cover"/>
                 </div>
                 <h3 class="font-heading font-black text-primary text-xl md:text-2xl tracking-tight mb-3">
@@ -1217,7 +1025,7 @@
             <article class="feat-card c-fade bg-[#e8e8e5] rounded-2xl overflow-hidden flex flex-col"
                      style="transition-delay: 0.06s">
                 <div class="img-zoom aspect-video w-full">
-                    <img src="./assets/image/ilpwritingskill.jpg" alt="Students in writing skills class"
+                    <img src="./assets/image/programs/writingskill.webp" alt="Students in writing skills class"
                          class="w-full h-full object-cover object-left"/>
                 </div>
                 <div class="p-6 md:p-7 flex flex-col flex-1">
@@ -1235,7 +1043,7 @@
             <article class="feat-card c-fade bg-[#e8e8e5] rounded-2xl overflow-hidden flex flex-col"
                      style="transition-delay: 0.16s">
                 <div class="img-zoom aspect-video w-full">
-                    <img src="assets/image/presentationilp.JPG" alt="Students in presentation skills session"
+                    <img src="assets/image/programs/presentation.webp" alt="Students in presentation skills session"
                          class="w-full h-full object-cover object-center"/>
                 </div>
                 <div class="p-6 md:p-7 flex flex-col flex-1">
@@ -1254,7 +1062,7 @@
                     class="feat-card c-fade bg-[#e8e8e5] rounded-2xl overflow-hidden flex flex-col sm:col-span-2 lg:col-span-1"
                     style="transition-delay: 0.26s">
                 <div class="img-zoom aspect-video w-full">
-                    <img src="assets/image/languagedevelopment1.jpg" alt="Student focused on language learning"
+                    <img src="assets/image/programs/languagedevelopment.webp" alt="Student focused on language learning"
                          class="w-full h-full object-cover object-right"/>
                 </div>
                 <div class="p-6 md:p-7 flex flex-col flex-1">
@@ -1272,14 +1080,18 @@
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->
-<footer class="bg-primary pt-14 pb-0 border-t border-white/10" aria-label="Site footer">
+<footer class="bg-primary pt-14 pb-0" aria-label="Site footer">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 md:px-12">
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 pb-14 border-b border-white/10">
+
             <div>
                 <div class="flex items-center gap-2.5 mb-5">
-                    <span class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center flex-shrink-0"><svg
-                            class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path
-                            d="M12 2C8 2 4 5 4 10c0 4 3 7 8 12 5-5 8-8 8-12 0-5-4-8-8-8z" fill="#00301C"/></svg></span>
+            <span class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2C8 2 4 5 4 10c0 4 3 7 8 12 5-5 8-8 8-12 0-5-4-8-8-8z" fill="#00301C"/>
+              </svg>
+            </span>
                     <span class="font-heading font-black text-white text-base tracking-tight">GREEN<span
                             class="text-secondary">VALLEY</span></span>
                 </div>
@@ -1297,7 +1109,7 @@
                             <path d="M13 10.7l-2-1a.8.8 0 00-.9.2l-.9 1a7.4 7.4 0 01-3.3-3.3l1-.9a.8.8 0 00.2-.9l-1-2A.8.8 0 005.4 4H4a.8.8 0 00-.8.8A9.6 9.6 0 0012.8 14a.8.8 0 00.8-.8v-1.7a.8.8 0 00-.6-.8z"
                                   stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
                         </svg>
-                        <span>+91 48329 44429 | +91 48329 69966</span>
+                        <span>+91 48329 44429 | +91 48329699 66</span>
                     </li>
                     <li class="flex items-start gap-2.5">
                         <svg class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" viewBox="0 0 16 16" fill="none">
@@ -1309,72 +1121,89 @@
                     </li>
                 </ul>
             </div>
+
             <div>
                 <h4 class="font-heading font-bold text-white text-base mb-5 tracking-tight">Courses</h4>
                 <ul class="space-y-2.5">
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">Computer
+                    <li><a class="cursor-pointer foot-link text-white/50 text-sm font-body font-light">Computer
                         Application</a></li>
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">Graphic Designing</a>
-                    </li>
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">Electrical
+                    <li><a class="cursor-pointer foot-link text-white/50 text-sm font-body font-light">Graphic
+                        Designing</a></li>
+                    <li><a class="cursor-pointer foot-link text-white/50 text-sm font-body font-light">Electrical
                         Technician</a></li>
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">Account Executive</a>
-                    </li>
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">Arabic Translator</a>
-                    </li>
+                    <li><a class="cursor-pointer foot-link text-white/50 text-sm font-body font-light">Account
+                        Executive</a></li>
+                    <li><a class="cursor-pointer foot-link text-white/50 text-sm font-body font-light">Arabic
+                        Translator</a></li>
                 </ul>
             </div>
+
             <div>
                 <h4 class="font-heading font-bold text-white text-base mb-5 tracking-tight">Quick Links</h4>
                 <ul class="space-y-2.5">
-                    <li><a href="about.html" class="foot-link text-white/50 text-sm font-body font-light">About Us</a>
-                    </li>
-                    <li><a href="admission-form.html" class="foot-link text-white/50 text-sm font-body font-light">Admission
+                    <li><a href="./application.html" class="foot-link text-white/50 text-sm font-body font-light">Admission
                         Form</a></li>
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">Campus Tour</a></li>
-                    <li><a href="#" class="foot-link text-white/50 text-sm font-body font-light">News &amp; Archive</a>
+                    <li><a href="./about.html" class="foot-link text-white/50 text-sm font-body font-light">About Us</a>
                     </li>
-                    <li><a href="contact.html" class="foot-link text-white/50 text-sm font-body font-light">Contact
-                        Us</a></li>
+                    <li><a href="./programmes.html" class="foot-link text-white/50 text-sm font-body font-light">Programmes</a>
+                    </li>
+                    <li><a href="./activities.html" class="foot-link text-white/50 text-sm font-body font-light">Activities</a>
+                    </li>
+                    <li><a href="./womens_academy.html" class="foot-link text-white/50 text-sm font-body font-light">Women's
+                        Academy</a></li>
                 </ul>
             </div>
+
             <div>
                 <h4 class="font-heading font-bold text-white text-base mb-5 tracking-tight">Connect</h4>
                 <ul class="space-y-3.5">
                     <li>
-                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light"><span
-                                class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0"><svg
-                                class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="currentColor"><path
-                                d="M8 1.6a6.4 6.4 0 100 12.8A6.4 6.4 0 008 1.6zM5.5 5.5h1.8V4.7c0-1.2.6-1.8 2-1.8h1.3v1.8H9.4c-.5 0-.5.2-.5.5V5.5h1.7l-.2 2H8.9V13H7V7.5H5.8l.2-2z"/></svg></span>Facebook</a>
+                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light">
+                <span class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 1.6a6.4 6.4 0 100 12.8A6.4 6.4 0 008 1.6zM5.5 5.5h1.8V4.7c0-1.2.6-1.8 2-1.8h1.3v1.8H9.4c-.5 0-.5.2-.5.5V5.5h1.7l-.2 2H8.9V13H7V7.5H5.8l.2-2z"/>
+                  </svg>
+                </span>Facebook
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light"><span
-                                class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0"><svg
-                                class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="none" stroke="currentColor"
-                                stroke-width="1.3"><rect x="3" y="3" width="10" height="10" rx="3"/><circle cx="8"
-                                                                                                            cy="8"
-                                                                                                            r="2.5"/><circle
-                                cx="11.2" cy="4.8" r=".7" fill="currentColor" stroke="none"/></svg></span>Instagram</a>
+                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light">
+                <span class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                       stroke-width="1.3">
+                    <rect x="3" y="3" width="10" height="10" rx="3"/>
+                    <circle cx="8" cy="8" r="2.5"/>
+                    <circle cx="11.2" cy="4.8" r=".7" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>Instagram
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light"><span
-                                class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0"><svg
-                                class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="currentColor"><path
-                                d="M15 3.5a6 6 0 01-1.65.46 2.9 2.9 0 001.26-1.6 5.8 5.8 0 01-1.83.7A2.9 2.9 0 008 5.57a8.2 8.2 0 01-5.96-3.02 2.9 2.9 0 00.9 3.86 2.87 2.87 0 01-1.31-.36v.04a2.9 2.9 0 002.32 2.84 2.9 2.9 0 01-1.3.05 2.9 2.9 0 002.7 2.01A5.82 5.82 0 011 12.4a8.2 8.2 0 004.44 1.3c5.33 0 8.25-4.42 8.25-8.25l-.01-.38A5.9 5.9 0 0015 3.5z"/></svg></span>Twitter</a>
+                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light">
+                <span class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M15 3.5a6 6 0 01-1.65.46 2.9 2.9 0 001.26-1.6 5.8 5.8 0 01-1.83.7A2.9 2.9 0 008 5.57a8.2 8.2 0 01-5.96-3.02 2.9 2.9 0 00.9 3.86 2.87 2.87 0 01-1.31-.36v.04a2.9 2.9 0 002.32 2.84 2.9 2.9 0 01-1.3.05 2.9 2.9 0 002.7 2.01A5.82 5.82 0 011 12.4a8.2 8.2 0 004.44 1.3c5.33 0 8.25-4.42 8.25-8.25l-.01-.38A5.9 5.9 0 0015 3.5z"/>
+                  </svg>
+                </span>Twitter
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light"><span
-                                class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0"><svg
-                                class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="currentColor"><circle
-                                cx="10" cy="10" r="4.5" fill="#25D366"/><path
-                                d="M8.5 9.2c.2.9.9 1.5 1.7 1.7l.6-.6c.1-.1.3-.1.5 0l.9.7c.1.1.1.3 0 .5-.5.5-1.3.7-1.9.4A4 4 0 017.9 9.5c-.4-.6-.2-1.4.4-1.9.1-.1.3-.1.5 0l.7.9c.1.1.1.3 0 .5l-.9.2z"
-                                fill="white"/></svg></span>WhatsApp</a>
+                        <a href="#" class="foot-sl text-white/50 text-sm font-body font-light">
+                <span class="w-7 h-7 rounded-lg bg-white/8 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3.5 h-3.5 text-secondary" viewBox="0 0 16 16" fill="currentColor">
+                    <circle cx="10" cy="10" r="4.5" fill="#25D366"/>
+                    <path d="M8.5 9.2c.2.9.9 1.5 1.7 1.7l.6-.6c.1-.1.3-.1.5 0l.9.7c.1.1.1.3 0 .5-.5.5-1.3.7-1.9.4A4 4 0 017.9 9.5c-.4-.6-.2-1.4.4-1.9.1-.1.3-.1.5 0l.7.9c.1.1.1.3 0 .5l-.9.2z"
+                          fill="white"/>
+                  </svg>
+                </span>WhatsApp
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
+
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 py-5 text-white/30 text-xs font-body font-light">
-            <p>© COPYRIGHT 2024 GREEN VALLEY ACADEMY. ALL RIGHTS RESERVED.</p>
+            <p>© COPYRIGHT 2026 GREEN VALLEY ACADEMY. ALL RIGHTS RESERVED.</p>
         </div>
     </div>
 </footer>
