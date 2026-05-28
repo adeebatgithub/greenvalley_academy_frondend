@@ -179,3 +179,137 @@ const whyObs = new IntersectionObserver((entries) => {
 }, {threshold: 0.12});
 
 whyRevealEls.forEach((el) => whyObs.observe(el));
+
+// ── NOTIFICATION POP-IN SYSTEM ──
+
+// Sample notifications for parents and teachers
+const notifications = [
+    {
+        title: "Parents & Teachers Notice",
+        message: "New admission process started. Apply now for next semester",
+        time: "Just now"
+    },
+    {
+        title: "Important Announcement",
+        message: "Annual school event scheduled for next month. Mark your calendars!",
+        time: "2 hours ago"
+    },
+    {
+        title: "Academic Update",
+        message: "Semester results are now available. Check the parent portal",
+        time: "Yesterday"
+    },
+    {
+        title: "Event Reminder",
+        message: "Parent-teacher conference scheduled for Friday 3 PM",
+        time: "3 days ago"
+    },
+    {
+        title: "Curriculum Update",
+        message: "New ILP program launches with enhanced learning modules",
+        time: "1 week ago"
+    }
+];
+
+let currentNotificationIndex = 0;
+let notificationTimeout = null;
+
+// Function to update notification content
+function updateNotification(index = 0) {
+    const notifs = document.querySelectorAll(".notification-popup");
+    if (notifs.length === 0) return;
+
+    const notification = notifications[index % notifications.length];
+
+    notifs.forEach((notif) => {
+        const titleEl = notif.querySelector(".notification-title");
+        const messageEl = notif.querySelector("#notification-text");
+        const timeEl = notif.querySelector(".notification-time");
+
+        if (titleEl) titleEl.textContent = notification.title;
+        if (messageEl) messageEl.textContent = notification.message;
+        if (timeEl) timeEl.textContent = notification.time;
+    });
+
+    currentNotificationIndex = (index + 1) % notifications.length;
+}
+
+// Function to show notification (reappear after close)
+function showNotification() {
+    const notifs = document.querySelectorAll(".notification-popup");
+    notifs.forEach((notif) => {
+        notif.classList.remove("fade-out");
+        // Trigger reflow to restart animation
+        void notif.offsetWidth;
+    });
+
+    // Schedule next notification rotation (every 8 seconds)
+    clearTimeout(notificationTimeout);
+    notificationTimeout = setTimeout(() => {
+        rotateNotification();
+    }, 8000);
+}
+
+// Function to rotate to next notification
+function rotateNotification() {
+    const notifs = document.querySelectorAll(".notification-popup");
+    if (notifs.length === 0) return;
+
+    // Fade out current
+    notifs.forEach((notif) => {
+        notif.classList.add("fade-out");
+    });
+
+    setTimeout(() => {
+        updateNotification(currentNotificationIndex);
+        showNotification();
+    }, 300);
+}
+
+// Close button handler
+document.addEventListener("click", (e) => {
+    if (e.target.closest(".notification-close")) {
+        const notif = e.target.closest(".notification-popup");
+        if (notif) {
+            notif.classList.add("fade-out");
+            clearTimeout(notificationTimeout);
+
+            // Reappear after 5 seconds
+            setTimeout(() => {
+                if (notif.classList.contains("fade-out")) {
+                    notif.classList.remove("fade-out");
+                    void notif.offsetWidth; // Trigger reflow
+                    showNotification();
+                }
+            }, 5000);
+        }
+    }
+});
+
+// Initialize notifications when page loads
+document.addEventListener("DOMContentLoaded", () => {
+    updateNotification(0);
+    showNotification();
+
+    // ── HERO SECTION VISIBILITY OBSERVER ──
+    // Hide notification popup when scrolling past hero section
+    const heroSection = document.querySelector("section[aria-label='Hero carousel']");
+    if (heroSection) {
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const notifs = document.querySelectorAll(".notification-popup");
+                notifs.forEach((notif) => {
+                    if (entry.isIntersecting) {
+                        // Hero section is visible - show popup
+                        notif.style.display = "flex";
+                    } else {
+                        // Hero section is not visible - hide popup
+                        notif.style.display = "none";
+                    }
+                });
+            });
+        }, { threshold: 0 });
+
+        heroObserver.observe(heroSection);
+    }
+});
